@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Student Form</title>
+</head>
+<body>
+<h1>Student Form</h1>
+<form th:object="${student}" th:action="${action}" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" th:field="*{name}" required/><br/>
+
+  <!--    <label for="address.street">Street:</label>-->
+  <!--    <input type="text" id="address.street" th:field="*{address.street}" required/><br/>-->
+
+  <!-- Add other fields for relationships, if needed -->
+
+  <input type="submit" value="Save"/>
+</form>
+<a href="/students">Back to Student List</a>
+</body>
+</html>

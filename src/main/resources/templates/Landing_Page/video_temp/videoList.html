@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Video List</title>
+  <style>
+    body {
+font-family: Arial, sans-serif;
+background-color: #f2f2f2;
+margin: 0;
+padding: 0;
+}
+
+h2 {
+color: #333;
+}
+
+table {
+width: 80%;
+margin: 20px auto;
+border-collapse: collapse;
+background-color: #fff;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+padding: 12px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+
+thead {
+background-color: #4caf50;
+color: #fff;
+}
+
+a {
+text-decoration: none;
+color: #007bff;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+<h2>Video List</h2>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="video : ${videos}">
+    <td th:text="${video.id}"></td>
+    <td th:text="${video.title}"></td>
+    <td>
+      <a th:href="@{'/videos/' + video.id + '/download'}">Download</a>
+      <!--            <a th:href="@{/deleteVideo/{id}(id=${video.id})}">Delete</a>-->
+      <a th:href="@{/videos/delete/{id}(id=${video.id})}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script>
+        function viewPdf(documentId) {
+            var viewerUrl = '/pdf/view/' + documentId;
+            window.open(viewerUrl, '_blank');
+        }
+    </script>
+    <title>PDF Documents</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+    padding: 5px 10px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+    </style>
+</head>
+<body>
+<h2>PDF Documents</h2>
+<ul>
+    <li th:each="document : ${documents}">
+        <span th:text="${document.fileName}"></span>
+        <a th:href="@{'/pdf/download/' + ${document.id}}">Download</a>
+        <a href="#" th:onclick="'javascript:viewPdf(' + ${document.id} + ');'">View</a>
+    </li>
+</ul>
+<a th:href="@{'/pdf/upload'}">Upload a PDF</a>
+</body>
+</html>

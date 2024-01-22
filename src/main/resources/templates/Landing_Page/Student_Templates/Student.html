@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    /* styles.css */
+
+body {
+font-family: 'Arial', sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 0;
+}
+
+.container {
+width: 50%;
+margin: 0 auto;
+}
+
+h1 {
+color: #333;
+}
+
+form {
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+margin-top: 20px;
+}
+
+label {
+display: block;
+margin-bottom: 8px;
+}
+
+input[type="text"],
+select {
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+input[type="submit"] {
+background-color: #4caf50;
+color: #fff;
+padding: 10px 15px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type="submit"]:hover {
+background-color: #45a049;
+}
+
+a {
+color: #007bff;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+<h1>Courses</h1>
+
+<form th:action="@{'/student/' + ${student.id} + '/register'}" method="post">
+  <select name="courseId">
+    <option th:each="course : ${courses}" th:value="${course.id}" th:text="${course.name}"></option>
+    <option value="1">Marathi</option>
+    <option value="2">Hindi</option>
+    <option value="3">English</option>
+    <option value="4">Science</option>
+  </select>
+  <input type="submit" value="Register for Course"/>
+</form>
+
+</body>
+</html>

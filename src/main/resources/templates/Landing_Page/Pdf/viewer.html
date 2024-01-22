@@ -1,0 +1,43 @@
+<!-- Inside src/main/resources/templates/pdf/viewer.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer</title>
+  <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+</head>
+<body>
+<h2>PDF Viewer</h2>
+<div>
+  <canvas id="pdfCanvas"></canvas>
+</div>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+      var documentId = /*[[${documentId}]]*/; // Get the document ID from Thymeleaf
+      var pdfViewerUrl = '/pdf/viewer/' + documentId;
+
+      var canvas = document.getElementById('pdfCanvas');
+      var context = canvas.getContext('2d');
+
+      PDFJS.getDocument(pdfViewerUrl).then(function (pdfDocument) {
+          pdfDocument.getPage(1).then(function (pdfPage) {
+              var viewport = pdfPage.getViewport({ scale: 1.5 });
+              canvas.width = viewport.width;
+              canvas.height = viewport.height;
+
+              var renderContext = {
+                  canvasContext: context,
+                  viewport: viewport
+              };
+
+
+
+              pdfPage.render(renderContext);
+          });
+      });
+  });
+</script>
+</body>
+</html>

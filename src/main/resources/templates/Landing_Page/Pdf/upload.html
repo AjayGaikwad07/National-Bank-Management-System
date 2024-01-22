@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+font-family: Arial, sans-serif;
+margin: 20px;
+}
+
+h2 {
+color: #333;
+}
+
+form {
+max-width: 400px;
+margin: 20px 0;
+}
+
+label {
+display: block;
+margin-bottom: 10px;
+}
+
+input[type="file"] {
+display: block;
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+button {
+background-color: #007BFF;
+color: #fff;
+padding: 10px 15px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0056b3;
+}
+
+a {
+text-decoration: none;
+color: #007BFF;
+margin-top: 10px;
+display: inline-block;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+  </style>
+  <title>Upload PDF</title>
+</head>
+<body>
+<h2>Upload PDF</h2>
+<form th:action="@{'/pdf/upload'}" method="post" enctype="multipart/form-data">
+  <label for="file">Select a PDF file:</label>
+  <input type="file" id="file" name="file" accept=".pdf" required />
+  <button type="submit">Upload</button>
+</form>
+<a th:href="@{'/pdf'}">Back to PDF Documents</a>
+</body>
+</html>
