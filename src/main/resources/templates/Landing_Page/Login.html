@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        .center-button {
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
+         /* Add some styling for the box border */
+         .form-box {
+            max-width: 400px; /* Set your desired max width */
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+      
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-3" style="width:400px;">
+        <div class="Login mt-3">
+            <h2>Admin Login</h2>
+        </div>
+        <div class="form-box">
+        <form action="/login" method="post" onsubmit="return validateForm()">
+            <div class="mb-3 mt-3">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
+                <span id="usernameError" class="error-message"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="pwd">Password:</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <input type="checkbox" id="showPassword" class="form-check-input"> Show
+                    </span>
+                  </div>
+                </div>
+            </div>
+
+            <div class="form-check mb-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                </label>
+            </div>
+            <div class="center-button">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            
+        </form>
+    </div>
+        <p th:text="${error}"></p>
+    </div>
+    
+    <script src="login.js"></script>
+
+</body>
+
+</html>
