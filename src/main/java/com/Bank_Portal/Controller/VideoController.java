@@ -1,7 +1,7 @@
 package com.Bank_Portal.Controller;
 
 import com.Bank_Portal.Entity.Video;
-import com.ImageProject.Service.VideoService;
+import com.Bank_Portal.Service.VideoService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

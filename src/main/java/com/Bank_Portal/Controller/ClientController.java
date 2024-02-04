@@ -1,10 +1,8 @@
 package com.Bank_Portal.Controller;
 
-
-
 import ch.qos.logback.core.model.Model;
-import com.ImageProject.Entity.Image;
-import com.ImageProject.Service.ImageServiceImpl;
+import com.Bank_Portal.Entity.Image;
+import com.Bank_Portal.Service.ImageServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

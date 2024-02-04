@@ -1,8 +1,6 @@
 package com.Bank_Portal.Service;
 
-package com.ImageProject.Service;
-
-import com.ImageProject.Entity.Image;
+import com.Bank_Portal.Entity.Image;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
