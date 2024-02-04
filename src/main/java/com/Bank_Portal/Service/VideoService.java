@@ -1,7 +1,5 @@
-package com.ImageProject.Service;
+package com.Bank_Portal.Service;
 
-import com.ImageProject.Entity.Video;
-import com.ImageProject.Repository.VideoRepository;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.LifecycleState;
